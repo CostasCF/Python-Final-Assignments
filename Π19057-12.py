@@ -16,7 +16,7 @@ seconds = (delta.days)*86400 #δευτερολεπτα
 
 
 #ποσες ημερες εχει ο μήνας εκείνης της ημερομηνίας 
-print (calendar.monthrange(2000, 1))
+print (calendar.monthrange(int(year), int(month))[1])
 
 #εκτυπώνει σε ποσες μερες/ωρες/δευτερολεπτα απεχει η ταδε ημερομηνία απο την σημερινη
 print (days,"μέρες /",hours,"ώρες /",seconds,"δευτερολεπτα")
