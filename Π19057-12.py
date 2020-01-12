@@ -9,10 +9,10 @@ day,month,year = DateInput.split('/')
 a = datetime.datetime(int(year),int(month),int(day)) # εισαγουμε στο προγραμμα μια συγκεκριμένη ημορομονία σε μορφή ΗΗ/ΜΜ/ΕΕΕΕ
 b = datetime.datetime.now() #η ώρα σήμερα
 
-delta = b - a
-days = (delta.days) #Ημερες
-hours = (delta.days)*24 #ωρες
-seconds = (delta.days)*86400 #δευτερολεπτα
+difference = b - a
+days = (difference.days) #Ημερες
+hours = (difference.days)*24 #ωρες
+seconds = (difference.days)*86400 #δευτερολεπτα
 
 
 #ποσες ημερες εχει ο μήνας εκείνης της ημερομηνίας 
@@ -20,4 +20,5 @@ print (calendar.monthrange(int(year), int(month))[1])
 
 #εκτυπώνει σε ποσες μερες/ωρες/δευτερολεπτα απεχει η ταδε ημερομηνία απο την σημερινη
 print (days,"μέρες /",hours,"ώρες /",seconds,"δευτερολεπτα")
+
 
