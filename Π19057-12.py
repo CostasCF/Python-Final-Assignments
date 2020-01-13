@@ -13,10 +13,12 @@ days = (difference.days) #Ημερες
 hours = (difference.days)*24 #ωρες
 seconds = (difference.days)*86400 #δευτερολεπτα
 
-#εκτυπώνει σε ποσες μερες/ωρες/δευτερολεπτα απεχει η ταδε ημερομηνία απο την σημερινη
-print (days,"μέρες /",hours,"ώρες /",seconds,"δευτερολεπτα")
+#εκτυπώνει σε ποσες μερες/ωρες/δευτερολεπτα απεχει η ταδε ημερομηνία απο την σημερινη και το αντιστροφο
 
-
+if b>a:
+    print ("H ημερομηνία αυτη ανήκει στο παρελθον για ",days,"μέρες /",hours,"ώρες /",seconds,"δευτερολεπτα")
+else:
+    print ("Η ημερομηνία αυτη θα έρθει σε ",days,"μέρες /",hours,"ώρες /",seconds,"δευτερολεπτα"," απο σήμερα")
 
 #συναρτηση που βρισκει την τελευταια μερα μιας συγκεκριμενης ημερομονιας αφαιρόντας
 #την ακριβως επομενη μερα του επομενου μήνα
@@ -25,4 +27,4 @@ def last_day_of_month(date):
         return date.replace(day=31)
     return date.replace(month=date.month+1, day=1) - datetime.timedelta(days=1)
 
-print ("Ημέρες του εισαγώμενου μήνα: ",last_day_of_month(a).day)
+print ("Ημέρες του",int(month),"του μήνα του",int(year),": ",last_day_of_month(a).day)
