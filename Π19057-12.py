@@ -2,7 +2,6 @@
 #Γράψτε ένα πρόγραμμα σε Python το οποίο παίρνει μια ημερομηνία σε μορφή ΗΗ/ΜΜ/ΕΕΕΕ και εμφανίζει πόσες μέρες/ώρες/δευτερόλεπτα
 #απέχει αυτή από σήμερα καθώς και πόσες ημέρες έχει ο μήνας εκείνης της ημερομηνίας.
 import datetime
-import calendar
 
 DateInput = input("Εισαγεται ημερομονία σε μορφή ΗΗ/ΜΜ/ΕΕΕΕ: ")
 day,month,year = DateInput.split('/')
@@ -14,11 +13,16 @@ days = (difference.days) #Ημερες
 hours = (difference.days)*24 #ωρες
 seconds = (difference.days)*86400 #δευτερολεπτα
 
-
-#ποσες ημερες εχει ο μήνας εκείνης της ημερομηνίας 
-print ("Ημέρες του εισαγώμενου μήνα: ",calendar.monthrange(int(year), int(month))[1])
-
 #εκτυπώνει σε ποσες μερες/ωρες/δευτερολεπτα απεχει η ταδε ημερομηνία απο την σημερινη
 print (days,"μέρες /",hours,"ώρες /",seconds,"δευτερολεπτα")
 
 
+
+#συναρτηση που βρισκει την τελευταια μερα μιας συγκεκριμενης ημερομονιας αφαιρόντας
+#την ακριβως επομενη μερα του επομενου μήνα
+def last_day_of_month(date):
+    if date.month == 12:
+        return date.replace(day=31)
+    return date.replace(month=date.month+1, day=1) - datetime.timedelta(days=1)
+
+print ("Ημέρες του εισαγώμενου μήνα: ",last_day_of_month(a).day)
