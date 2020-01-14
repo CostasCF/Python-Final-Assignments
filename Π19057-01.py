@@ -1,6 +1,7 @@
 #ΑΣΚΗΣΗ 1
 #Γράψτε ένα πρόγραμμα σε Python το οποίο βρίσκει τις πέντε μεγαλύτερες λέξεις ενός κειμένου
 #το οποίο διαβάζει από αρχείο και τις εκτυπώνει ανάποδα, έχοντας αφαιρέσει τα φωνήεντα.
+#----------------------------------------------------------------------------------------------------
 
 #εισαγωγη αρχειου
 text = open("RandomTextFile.txt").read().split()
@@ -9,26 +10,28 @@ text = open("RandomTextFile.txt").read().split()
 def map_(A):
     return list(map(len, A))
 
+#------------ ταξινόμηση-------------------------------------------------
 words = map_(text) #λιστα που περιεχει των αριθμων των χαρακτηρων καθε λεξης
+print(words)
 words,text = (zip(*sorted(zip(words, text)))) #ταξινόμηση στις λιστες με βαση το μεγεθος καθε λεξης
+
+
+#-----------γυρίζει ανάποδα τις λίστες --------
 
 words =(list(reversed(words)))
 text = (list(reversed(text)))
+print (text)
 
-
-my_list=[]
+#----------- δημιουργια λιστας που περιεχει τις πιο 5 πιο μεγαλες σε μηκος λεξεις---------
+mylist=[]
 for i in range(5):
-    my_list.append(text[i])
+    mylist.append(text[i])
+print (mylist)
 
-def reverse_for_loop(s):
-    s1 = ''
-    for c in s:
-        s1 = c + s1  # appending chars in reverse order
-    return s1
+#-----------αφαίρει τα φωνήεντα απο τις 5 πιο μεγαλες σε μηκος λεξεις
+vowels = ['a', 'e', 'i', 'o', 'u']
+for i in range(len(mylist)):
+    for v in vowels:
+        mylist[i] = mylist[i].replace(v,"")
+print(mylist)
 
-reversed(my_list[::-1])
-
-my_list = [w.replace(('a', 'e', 'i', 'o', 'u'), '') for w in words]
-
-
-print (my_list)
