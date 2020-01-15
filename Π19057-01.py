@@ -10,28 +10,34 @@ text = open("RandomTextFile.txt").read().split()
 def map_(A):
     return list(map(len, A))
 
-#------------ ταξινόμηση-------------------------------------------------
 words = map_(text) #λιστα που περιεχει των αριθμων των χαρακτηρων καθε λεξης
-print(words)
-words,text = (zip(*sorted(zip(words, text)))) #ταξινόμηση στις λιστες με βαση το μεγεθος καθε λεξης
 
+#---- n max values function
+def Nmaxelements(list1,list2, N,list3): 
+    final_list = []
+    
+    for i in range(0, N):  
+        max1 = 0
+        max2= ""
+        for j in range(len(list1)):      
+            if list1[j] > max1: 
+                max1 = list1[j]
+                textMax = list2[j]
+        list1.remove(max1)
+        list2.remove(textMax)
+        final_list.append(max1)
+        list3.append(textMax)
+         
+    print(final_list,list3)
+list3 = []
+Nmaxelements(words,text,5,list3)
 
-#-----------γυρίζει ανάποδα τις λίστες --------
-
-words =(list(reversed(words)))
-text = (list(reversed(text)))
-print (text)
-
-#----------- δημιουργια λιστας που περιεχει τις πιο 5 πιο μεγαλες σε μηκος λεξεις---------
-mylist=[]
-for i in range(5):
-    mylist.append(text[i])
-print (mylist)
 
 #-----------αφαίρει τα φωνήεντα απο τις 5 πιο μεγαλες σε μηκος λεξεις
 vowels = ['a', 'e', 'i', 'o', 'u']
-for i in range(len(mylist)):
+for i in range(len(list3)):
     for v in vowels:
-        mylist[i] = mylist[i].replace(v,"")
-print(mylist)
+        list3[i] = list3[i].replace(v,"")
+
+print (list3)  
 
