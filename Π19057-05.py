@@ -4,5 +4,17 @@
 
 #εισαγωγη αρχειου
 text = open("RandomTextFile.txt").read().split()
+
+#συναρτηση που αφαιρει τις ",." απο το κειμενο
+def remover(A):
+    points =[".",","]
+    for i in range(len(A)):
+        for p in points:
+            A[i]=A[i].replace(p,"")
+    return(A)
+
+#αφαιρουμε τις ",." απο το λιστα κειμενου για να μενουν μονο οι λέξεις
+remover(text)
+
 print ([i[1:] + i[0] + 'ay' if len(i) > 3 else i for i in text])
 

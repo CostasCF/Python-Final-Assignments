@@ -9,7 +9,16 @@ text = open("RandomTextFile.txt").read().split()
 #συναρτηση που βρισκει το μηκος καθε λεξης απο μια λιστα
 def map_(A):
     return list(map(len, A))
+#συναρτηση που αφαιρει τις ",." απο το κειμενο
+def remover(A):
+    points =[".",","]
+    for i in range(len(A)):
+        for p in points:
+            A[i]=A[i].replace(p,"")
+    return(A)
 
+
+text = remover(text) #αφαιρουμε τις ",." απο το λιστα κειμενου για να μενουν μονο οι λέξεις
 words = map_(text) #λιστα που περιεχει των αριθμων των χαρακτηρων καθε λεξης
 
 #---- n max values function
@@ -33,7 +42,7 @@ list3 = []
 Nmaxelements(words,text,5,list3)
 
 
-#-----------αφαίρει τα φωνήεντα απο τις 5 πιο μεγαλες σε μηκος λεξεις
+#-----------αφαίρει τα φωνήεντα απο την λιστα με τις 5 πιο μεγαλες σε μηκος λεξεις
 vowels = ['a', 'e', 'i', 'o', 'u']
 for i in range(len(list3)):
     for v in vowels:
