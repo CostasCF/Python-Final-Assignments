@@ -27,7 +27,6 @@ def Nmaxelements(list1,list2, N,list3):
     
     for i in range(0, N):  
         max1 = 0
-        max2= ""
         for j in range(len(list1)):      
             if list1[j] > max1: 
                 max1 = list1[j]
