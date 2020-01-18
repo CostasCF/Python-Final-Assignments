@@ -37,16 +37,22 @@ def Nmaxelements(list1,list2, N,list3):
         final_list.append(max1)
         list3.append(textMax)
          
-    print(final_list,list3)
+    return(final_list,list3)
 list3 = []
 Nmaxelements(words,text,5,list3)
+print ("Λίστα με τις 5 μεγαλυτερες λεξεις",list3)
 
 
-#-----------αφαίρει τα φωνήεντα απο την λιστα με τις 5 πιο μεγαλες σε μηκος λεξεις
+#---------αφαίρει τα φωνήεντα απο την λιστα με τις 5 πιο μεγαλες σε μηκος λεξεις
 vowels = ['a', 'e', 'i', 'o', 'u']
 for i in range(len(list3)):
     for v in vowels:
         list3[i] = list3[i].replace(v,"")
 
-print (list3)  
+print ("Λιστα χωρις τα φωνήεντα",list3)
+reversedstring=[]
+for i in range(5):
+    reversedstring[i]=''.join(reversed(list3[i]))
+print (reversedstring)
+
 
