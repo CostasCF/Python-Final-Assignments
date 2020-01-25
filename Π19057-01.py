@@ -9,6 +9,7 @@ text = open("RandomTextFile.txt").read().split()
 #συναρτηση που βρισκει το μηκος καθε λεξης απο μια λιστα
 def map_(A):
     return list(map(len, A))
+
 #συναρτηση που αφαιρει τις ",." απο το κειμενο
 def remover(A):
     points =[".",","]
@@ -19,14 +20,14 @@ def remover(A):
 
 
 text = remover(text) #αφαιρουμε τις ",." απο το λιστα κειμενου για να μενουν μονο οι λέξεις
-words = map_(text) #λιστα που περιεχει των αριθμων των χαρακτηρων καθε λεξης
+words = map_(text)   #λιστα που περιεχει τον αριθμο των χαρακτηρων καθε λεξης
 
-#---- n max values function
+#----ευρεση max λεξεων
 def Nmaxelements(list1,list2, N,list3): 
     final_list = []
     
     for i in range(0, N):  
-        max1 = 0
+        max1 = -1
         for j in range(len(list1)):      
             if list1[j] > max1: 
                 max1 = list1[j]
@@ -35,14 +36,14 @@ def Nmaxelements(list1,list2, N,list3):
         list2.remove(textMax)
         final_list.append(max1)
         list3.append(textMax)
-         
-    return(final_list,list3)
+    return(list3)
+
 list3 = []
 Nmaxelements(words,text,5,list3)
+
 print ("\nΛίστα με τις 5 μεγαλυτερες λεξεις",list3)
 
-
-#---------αφαίρει τα φωνήεντα απο την λιστα με τις 5 πιο μεγαλες σε μηκος λεξεις
+#αφαίρουμε τα φωνήεντα απο την λιστα με τις 5 πιο μεγαλες σε μηκος λεξεις
 vowels = ['a', 'e', 'i', 'o', 'u']
 for i in range(len(list3)):
     for v in vowels:
@@ -50,9 +51,12 @@ for i in range(len(list3)):
 
 print ("\nΛιστα χωρις τα φωνήεντα",list3)
 
+#αντιστρέφουμε καθε item της λιστας 
 reversedstring = []
 for i in range(5):
-    reversedstring.append(''.join(reversed(list3[i])))              
+    reversedstring.append(''.join(reversed(list3[i])))
+
+#εκτύπωση του τελικού ζητουμένου της άσκησης
 print ("\nΛίστα χωρις τα φωνήεντα με αντεστραμένες τις λέξεις",reversedstring)
 
 

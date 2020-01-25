@@ -16,5 +16,6 @@ def remover(A):
 #αφαιρουμε τις ",." απο το λιστα κειμενου για να μενουν μονο οι λέξεις
 remover(text)
 
+#χρησιμοποιούμε την λειτουργια list comprehension της python και εκτυπώνουμε παράλληλα το τελικο αποτέλεσμα
 print ([i[1:] + i[0] + 'ay' if len(i) > 3 else i for i in text])
 
